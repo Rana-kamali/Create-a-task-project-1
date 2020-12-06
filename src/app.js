@@ -14,3 +14,4 @@ $(".btn-primary").on("click", () => {
   console.log(input);
 $(".nameInput").append(input);
 });
+
