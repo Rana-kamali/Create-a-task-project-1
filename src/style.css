@@ -1,0 +1,26 @@
+/* body{
+    text-align: center;
+} */
+.grid-container {
+    display: grid;
+    grid-row-gap: 50px;
+    grid-template-columns: 100px 250px 100px 250px;
+    padding: 10px;
+}
+.grid-item {
+text-align: center;
+color: white;
+background-color:#44bcd8;
+padding-top: 30px;
+padding-bottom: 150px;
+width: 100px;
+
+}
+.grid-item-right{
+text-align: left;
+color: #44bcd8;
+padding-top: 50px;
+padding-bottom: 150px;
+padding-left: 30px;
+width: 100px;
+}
