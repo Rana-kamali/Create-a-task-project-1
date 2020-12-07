@@ -7,13 +7,17 @@ $( ".grid-item-right" ).click(function() {
 
   // P2 Add project name
 
-
+//<!-- project name-->
 $(".btn-primary").on("click", () => {
   console.log("was clicked!");
   const input = $(".nameInput").val();
   console.log(input);
 $(".nameInput").append(input);
 }); 
-
-
-//// Modal
+// <!-- project status-->
+$(".btn-primary").on("click", () => {
+  console.log("was clicked!");
+  const form = $("#status-form").val();
+  console.log(form);
+$("#status-form").append(form);
+}); 
