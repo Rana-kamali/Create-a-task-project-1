@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>To Do list </title>
 </head>
 <body>
@@ -16,43 +19,55 @@
     <div class="grid-container">
         
         <div class="grid-item"><p>Add</p></div>
-        <div class="grid-item-right" data-toggle="modal" data-target="#myModal"><p> New</p></div>
+        <!-- Trigger the modal with a button -->
+        <div class="grid-item-right" data-toggle="modal" data-target="#myModal"><p> New list</p></div>
 
     </div>
     <!----------------- PAGE 1 ------------------->
-    
-    <!----------------- PAGE 2 FORM ------------------->
-    <div class="P2-container">
-        <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <div class="container">
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create a Project</h4>
+            </div>
+            <!-- Modal body-->
+            <div class="modal-body"></div>
+              <p>Some text in the modal.</p>
+                <!-- project name-->
+              <div class="Name">
+              <p>
+                <label>Name</label>
+                <input type="text" class="nameInput" placeholder="Project 1"> </input>
+              </p>
+            </div>
+            <!-- project status-->
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary btn-sm">Primary</button>
+            </div>
+          </div>
+          
         </div>
       </div>
       
     </div>
-  </div>
-        
+    <!----------------- PAGE 2 FORM ------------------->
+    
+    
+   
+        <!-- ----------------- -->
         <div>
             
-            <div class="Name">
-                <label>Name</label>
-                <input type="text" class="nameInput" placeholder="Project 1"> </input>
-            </div>
             
-            <div ><button type="button" class="btn btn-primary btn-sm">Primary</button></div>
-        </div>
+            
+            
+        </div> 
     </div>
     <!----------------- PAGE FORM ------------------->
     

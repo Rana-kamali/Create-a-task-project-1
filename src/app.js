@@ -16,3 +16,4 @@ $(".nameInput").append(input);
 }); 
 
 
+//// Modal
