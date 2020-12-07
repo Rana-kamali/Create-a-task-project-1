@@ -9,7 +9,7 @@ $( ".grid-item-right" ).click(function() {
 
 
 $(".btn-primary").on("click", () => {
-  console.log("wasssssss clicked!");
+  console.log("was clicked!");
   const input = $(".nameInput").val();
   console.log(input);
 $(".nameInput").append(input);
