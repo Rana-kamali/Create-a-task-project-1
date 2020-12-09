@@ -1,6 +1,8 @@
 console.log("app is running");
 ///list
-const todoList = [];
+const todoList = [{
+  neme : ""
+} ];
 // console.log("printing to do list", todolist);
 $(".resultpage").append('<ul id="todos"></ul>');
 todoList.forEach((element, i) => {
@@ -13,18 +15,18 @@ todoList.forEach((element, i) => {
 console.log(todoList);
 
 /// P1 New clicked
-$( ".grid-item-right" ).click(function() {
-    // alert( "You are creating a new task" );
-    console.log("Creating a new task");
-  });
+$(".grid-item-right").click(function () {
+  // alert( "You are creating a new task" );
+  console.log("Creating a new task");
+});
 
-  // P2 Add project name
+// P2 Add project name
 
-  ////// HEADER 
+////// HEADER
 const $container = $(`.modal-header`);
 // console.log(" container is : ", $container);
 
-const $h1= `<h1>create a task</h1>`;
+const $h1 = `<h1>create a task</h1>`;
 // console.log(`h1 is working`, $h1);
 $container.append($h1);
 
@@ -33,7 +35,7 @@ $container.append($h1);
 const $modalBody = $(`.modal-body`);
 // console.log(" container is : ", $name);
 const $form = `
-  <form>
+  <form id="toDoForm">
     <label>Name</label>
     <input name="name" type="text" placeholder="Project 1"> </input>
     <label for="status">Status</label>
@@ -47,14 +49,37 @@ const $form = `
       <input type="text" id="datepicker" name="date"/>
     <label>comment</label>
     <textarea rows="4" cols="50" name="comment"> Enter text here...</textarea>
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
   </form>
-`
-
+`;
+const renderNewToDoItem = (newToDo) =>{
+  return ` 
+  <h1 style="display:inline;"class="nameoftheproject">${newToDo.name}</h1>
+  <h2 style="display:inline;" class="nameofstatus">${newToDo.status}</h2>
+  <h3 style="display:inline;"class="resultofdate">${newToDo.date}</h3>
+  <h4 style="display:inline;"class="resultofcomment">${newToDo.comment}</h4>`
+}
 // console.log(`h is working`, $h);
 $modalBody.append($form);
-$( function() {
-  $( "#datepicker" ).datepicker();
-} );
-
-
-
+$(function () {
+  $("#datepicker").datepicker();
+});
+$("#toDoForm").on("submit", (event) => {
+  event.preventDefault();
+  const name = $("input[name='name']").val();
+  const status = $("select[name='status']").val();
+  const date = $("input[name='date']").val();
+  const comment = $("textarea[name='comment']").val();
+  const newTodoItem = {
+    name: name,
+    status: status,
+    date: date,
+    comment: comment,
+  };
+  console.log("new item: ", newTodoItem);
+  todoList.push(newTodoItem);
+  console.log("after push", todoList);
+  const $newToDo = renderNewToDoItem(newTodoItem);
+  console.log($newToDo);
+  $("#resultpage").append($newToDo)
+});
