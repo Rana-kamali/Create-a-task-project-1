@@ -1,5 +1,16 @@
 console.log("app is running");
 ///list
+const todoList = [];
+// console.log("printing to do list", todolist);
+$(".resultpage").append('<ul id="todos"></ul>');
+todoList.forEach((element, i) => {
+  console.log("element", element);
+  console.log("index", i);
+});
+// for (var i=0; i < todoList.length; i++){
+//   todoList.push({});
+// }
+console.log(todoList);
 
 /// P1 New clicked
 $( ".grid-item-right" ).click(function() {
@@ -11,93 +22,39 @@ $( ".grid-item-right" ).click(function() {
 
   ////// HEADER 
 const $container = $(`.modal-header`);
-console.log(" container is : ", $container);
+// console.log(" container is : ", $container);
 
 const $h1= `<h1>create a task</h1>`;
-console.log(`h1 is working`, $h1);
+// console.log(`h1 is working`, $h1);
 $container.append($h1);
 
 //<!-- project name-->
-const $name = $(`.modal-body`);
-console.log(" container is : ", $name);
 
-const $h= `<p>
-<label>Name</label>
-<input type="text" class="nameInput" placeholder="Project 1"> </input>
-</p>`;
-console.log(`h is working`, $h);
-$name.append($h);
-$(".btn-primary").on("click", () => {
-  console.log("was clicked!");
-  const input = $(".nameInput").val();
-  console.log(input);
-$(".nameInput").append(input);
-$(".nameoftheproject").append(input);
-}); 
-// <!-- project status-->
-////status
-const $select = $(`.modal-body`);
-console.log(" select : ", $select);
+const $modalBody = $(`.modal-body`);
+// console.log(" container is : ", $name);
+const $form = `
+  <form>
+    <label>Name</label>
+    <input name="name" type="text" placeholder="Project 1"> </input>
+    <label for="status">Status</label>
+    <select name="status">
+      <option value="none">none</option>
+      <option value="assign">assign</option>
+      <option value="working">working</option>
+      <option value="complete">complete</option>
+    </select>
+    <lable for="date"> Date </lable>
+      <input type="text" id="datepicker" name="date"/>
+    <label>comment</label>
+    <textarea rows="4" cols="50" name="comment"> Enter text here...</textarea>
+  </form>
+`
 
-const $h2= `<label for="status">Status</label>
-<select name="status-form" id="status-form">
-<option value="none">none</option>
-<option value="assign">assign</option>
-<option value="working">working</option>
-<option value="complete">complete</option>
-</select>`;
-
-console.log(`select is working`,$h2 );
-$select.append($h2);
-
-$(".btn-primary").on("click", () => {
-  console.log("was clicked!");
-  const form = $("#status-form").val();
-  console.log(form);
-$("#status-form").append(form);
-$(".nameofstatus").append(form);
-
-}); 
-
-////// <!-- date-->  
-
-const $data = $(`.modal-body`);
-console.log(" container is : ", $data);
-
-const $p= `<p>Date: <br>
- <input 
-type="text" id="datepicker"></p>`;
-
-console.log(`p is working`, $p);
-$data.append($p);
-$(".btn-primary").on("click", () => {
-  console.log("date was clicked!");
-  const dateinput = $("#datepicker").val();
-  console.log(dateinput);
-$("#datepicker").append(dateinput);
-$(".resultofdate").append(dateinput);
-}); 
-
+// console.log(`h is working`, $h);
+$modalBody.append($form);
 $( function() {
   $( "#datepicker" ).datepicker();
 } );
-//  <!-- comment box --> 
-const $comment = $(`.modal-body`);
-console.log(" comment is : ", $comment);
 
-const $h3= `<br>
-<label>comment</label>
-<textarea rows="4" cols="50" name="comment" form="usrform" id="commentform">
-Enter text here...</textarea>`;
 
-console.log(` is working`, $h3);
-$comment.append($h3);
 
-$(".btn-primary").on("click", () => {
-  console.log("was clicked!");
-  const wittecomment = $("#commentform").val();
-  console.log(wittecomment);
-$("#commentform").append(wittecomment);
-
-$(".resultofcomment").append(wittecomment);
-}); 
