@@ -10,8 +10,6 @@ body{
     
 }
 
-
-
 .grid-item {
 text-align: center;
 color: white;
@@ -29,9 +27,6 @@ padding-bottom: 150px;
 padding-left: 30px;
 width: 100px;
 }
-
-
-
 
 .P2-container{
     text-align: left;
@@ -53,3 +48,29 @@ div label {
 .modal-header{
     /* color: springgreen; */
 }
+/* result preview */
+.resultpage{
+    text-align: center;
+}
+.nameoftheproject{
+    color: #44bcd8;
+    font-size: 20px;
+    padding-right: 100px;
+}
+.nameofstatus{
+    color: #666666;
+    font-size: 20px;
+    padding-right: 100px;
+}
+.resultofdate{
+    color: #666666;
+    font-size: 20px;
+    padding-right: 100px;
+}
+.resultofcomment{
+    color: #666666;
+    font-size: 15px;
+    padding-right: 100px;
+}
+
+

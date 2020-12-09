@@ -1,4 +1,6 @@
 console.log("app is running");
+///list
+
 /// P1 New clicked
 $( ".grid-item-right" ).click(function() {
     // alert( "You are creating a new task" );
@@ -32,9 +34,6 @@ $(".btn-primary").on("click", () => {
 $(".nameInput").append(input);
 $(".nameoftheproject").append(input);
 }); 
-
-
-
 // <!-- project status-->
 ////status
 const $select = $(`.modal-body`);
@@ -65,8 +64,7 @@ $(".nameofstatus").append(form);
 const $data = $(`.modal-body`);
 console.log(" container is : ", $data);
 
-const $p= `<br>
-<p>Date: <br>
+const $p= `<p>Date: <br>
  <input 
 type="text" id="datepicker"></p>`;
 
