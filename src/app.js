@@ -30,7 +30,9 @@ $(".btn-primary").on("click", () => {
   const input = $(".nameInput").val();
   console.log(input);
 $(".nameInput").append(input);
+$(".nameoftheproject").append(input);
 }); 
+
 
 
 // <!-- project status-->
@@ -54,9 +56,33 @@ $(".btn-primary").on("click", () => {
   const form = $("#status-form").val();
   console.log(form);
 $("#status-form").append(form);
-
+$(".nameofstatus").append(form);
 
 }); 
+
+////// <!-- date-->  
+
+const $data = $(`.modal-body`);
+console.log(" container is : ", $data);
+
+const $p= `<br>
+<p>Date: <br>
+ <input 
+type="text" id="datepicker"></p>`;
+
+console.log(`p is working`, $p);
+$data.append($p);
+$(".btn-primary").on("click", () => {
+  console.log("date was clicked!");
+  const dateinput = $("#datepicker").val();
+  console.log(dateinput);
+$("#datepicker").append(dateinput);
+$(".resultofdate").append(dateinput);
+}); 
+
+$( function() {
+  $( "#datepicker" ).datepicker();
+} );
 //  <!-- comment box --> 
 const $comment = $(`.modal-body`);
 console.log(" comment is : ", $comment);
@@ -74,27 +100,6 @@ $(".btn-primary").on("click", () => {
   const wittecomment = $("#commentform").val();
   console.log(wittecomment);
 $("#commentform").append(wittecomment);
+
+$(".resultofcomment").append(wittecomment);
 }); 
-//////
-
-const $data = $(`.modal-body`);
-console.log(" container is : ", $data);
-
-const $p= `<br>
-<p>Date: <br>
- <input 
-type="text" id="datepicker"></p>`;
-
-console.log(`p is working`, $p);
-$data.append($p);
-$(".btn-primary").on("click", () => {
-  console.log("date was clicked!");
-  const dateinput = $("#datepicker").val();
-  console.log(dateinput);
-$("#datepicker").append(dateinput);
-}); 
-
-
-$( function() {
-  $( "#datepicker" ).datepicker();
-} );
