@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./style.css"></link>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -13,56 +12,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <!----------------- Date ------------------->
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>To Do list </title>
 </head>
 <body>
     <!----------------- PAGE 1 ------------------->
     <div class="grid-container">
-        
         <div class="grid-item"><p>Add</p></div>
         <!-- Trigger the modal with a button -->
         <div class="grid-item-right" data-toggle="modal" data-target="#myModal"><p> New list</p></div>
-
-    </div>
+      </div>
     <!----------------- PAGE 1 ------------------->
     <div class="container">
       <!-- Modal -->
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-        
           <!-- Modal content-->
           <!-- Modal header-->
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body-->
-            <div class="modal-body"></div>
-              <p>Some text in the modal.</p>
-                <!-- project name(moved to JS)-->
-              <!-- <div class="Name">
-              <p>
-                <label>Name</label>
-                <input type="text" class="nameInput" placeholder="Project 1"> </input>
-              </p>
-            </div> -->
-            <!-- project status(moved to JS)-->
-            <!-- <p>
-            <label for="status">Status</label>
-                <!-- <select name="status-form" id="status-form">
-                  <option value="none">none</option>
-                  <option value="assign">assign</option>
-                  <option value="working">working</option>
-                  <option value="complete">complete</option>
-                </select> -->
-            <!-- </p> --> 
-              <!-- comment box --> 
-            <!-- <textarea rows="4" cols="50" name="comment" form="usrform">
-              Enter text here...</textarea> -->
-
+              <div class="modal-body"></div>
             <!-- footer-->
-
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary btn-sm">Primary</button>
@@ -76,13 +52,7 @@
     <!----------------- PAGE 2 FORM ------------------->
     
     
-   
-        <!-- ----------------- -->
-      
   </div>
-    <!----------------- PAGE FORM ------------------->
-    
-
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>

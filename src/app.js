@@ -75,4 +75,26 @@ $(".btn-primary").on("click", () => {
   console.log(wittecomment);
 $("#commentform").append(wittecomment);
 }); 
+//////
 
+const $data = $(`.modal-body`);
+console.log(" container is : ", $data);
+
+const $p= `<br>
+<p>Date: <br>
+ <input 
+type="text" id="datepicker"></p>`;
+
+console.log(`p is working`, $p);
+$data.append($p);
+$(".btn-primary").on("click", () => {
+  console.log("date was clicked!");
+  const dateinput = $("#datepicker").val();
+  console.log(dateinput);
+$("#datepicker").append(dateinput);
+}); 
+
+
+$( function() {
+  $( "#datepicker" ).datepicker();
+} );
