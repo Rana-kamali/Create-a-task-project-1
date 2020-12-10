@@ -20,9 +20,6 @@ $(".grid-item-right").click(function () {
   console.log("Creating a new task");
 });
 
-// P2 Add project name
-
-////// HEADER
 const $container = $(`.modal-header`);
 // console.log(" container is : ", $container);
 
@@ -30,10 +27,10 @@ const $h1 = `<h1>create a task</h1>`;
 // console.log(`h1 is working`, $h1);
 $container.append($h1);
 
-//<!-- project name-->
+
 
 const $modalBody = $(`.modal-body`);
-// console.log(" container is : ", $name);
+
 const $form = `
   <form id="toDoForm">
     <label>Name</label>
@@ -54,20 +51,32 @@ const $form = `
 `;
 const renderNewToDoItem = (newToDo) =>{
   return ` 
-
+  <tr class="heading">
+  <th>Action</th>
+  <th>Edit</th>
+  <th >Project Name</th>
+  <th>Project Status</th>
+  <th>Project Date</th>
+  <th>Comment</th>
+  
+</tr>
 <tr>
+  <td><i class="fa fa-trash" onClick = {test()}></i></td>
+  <td><span class="glyphicon">&#x270f;</span></td>
   <td class="nameoftheproject">${newToDo.name}</td>
   <td class="nameofstatus">${newToDo.status}</td>
   <td class="resultofdate">${newToDo.date}</td>
   <td class="resultofcomment">${newToDo.comment}</td>
+  
 </tr>
 <tr>
   `
 }
-// console.log(`h is working`, $h);
+
 $modalBody.append($form);
 $(function () {
   $("#datepicker").datepicker();
+  format: 'dd/mm/yyyy'
 });
 $("#toDoForm").on("submit", (event) => {
   event.preventDefault();
@@ -88,3 +97,12 @@ $("#toDoForm").on("submit", (event) => {
   console.log($newToDo);
   $("#resultpage").append($newToDo)
 });
+
+// const delete = (obj) => {
+//   todoList.pop(obj);
+// }
+
+const test = (obj) => { 
+  console.log("Delete button should work!")
+  todoList.pop(obj);
+} 
