@@ -54,10 +54,15 @@ const $form = `
 `;
 const renderNewToDoItem = (newToDo) =>{
   return ` 
-  <h1 style="display:inline;"class="nameoftheproject">${newToDo.name}</h1>
-  <h2 style="display:inline;" class="nameofstatus">${newToDo.status}</h2>
-  <h3 style="display:inline;"class="resultofdate">${newToDo.date}</h3>
-  <h4 style="display:inline;"class="resultofcomment">${newToDo.comment}</h4>`
+
+<tr>
+  <td class="nameoftheproject">${newToDo.name}</td>
+  <td class="nameofstatus">${newToDo.status}</td>
+  <td class="resultofdate">${newToDo.date}</td>
+  <td class="resultofcomment">${newToDo.comment}</td>
+</tr>
+<tr>
+  `
 }
 // console.log(`h is working`, $h);
 $modalBody.append($form);
