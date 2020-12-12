@@ -74,7 +74,9 @@ div label {
 }
 
 
-
+.ui-icon ui-icon-circle-triangle-e{
+    padding-left:50px ;
+}
 .ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all{
     color: #44bcd8;
 }
@@ -102,10 +104,11 @@ div label {
     font-weight: lighter;
 }
 .fa {
-    padding-right: 50px;
+    padding-right: 75px;
+    padding-left: 10px;
 }
 .glyphicon{
-    padding-right: 50px;
+    padding-right: 75px;
 
 }
 .heading{
@@ -119,6 +122,18 @@ div label {
     background-color:#44bcd8;
 
 }
+#Qoute{
+    color: #666666;
+    font-weight: light;
+    padding-top: 30px;
+}
+#Author{
+    text-align: center;
+    color: #44bcd8;
+    font-weight: bold;
+}
+
+
 
 
 

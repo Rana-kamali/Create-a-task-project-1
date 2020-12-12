@@ -1,8 +1,14 @@
 console.log("app is running");
 ///list
-const todoList = [{
-  neme : ""
-} ];
+// const todoList = [{
+// //   name : "",
+// //   status: "",
+// //   date: "",
+// //   comment: "",
+
+
+// } ];
+const todoList=[];
 // console.log("printing to do list", todolist);
 $(".resultpage").append('<ul id="todos"></ul>');
 todoList.forEach((element, i) => {
@@ -58,10 +64,11 @@ const renderNewToDoItem = (newToDo) =>{
   <th>Project Status</th>
   <th>Project Date</th>
   <th>Comment</th>
+<li>
   
 </tr>
 <tr>
-  <td><i class="fa fa-trash" onClick = {test()}></i></td>
+  <td><i class="fa fa-trash"></i></td>
   <td><span class="glyphicon">&#x270f;</span></td>
   <td class="nameoftheproject">${newToDo.name}</td>
   <td class="nameofstatus">${newToDo.status}</td>
@@ -92,17 +99,46 @@ $("#toDoForm").on("submit", (event) => {
   };
   console.log("new item: ", newTodoItem);
   todoList.push(newTodoItem);
+  const newToDoItemIndex= todoList.length-1;
+  console.log("newtodo index",newToDoItemIndex);
   console.log("after push", todoList);
-  const $newToDo = renderNewToDoItem(newTodoItem);
+  const $newToDo = $(renderNewToDoItem(newTodoItem));
+  $newToDo.find(".fa-trash").on("click",()=>{
+    todoList.splice(newToDoItemIndex,1);
+    console.log("removing an item", todoList);
+    console.log("new to do clicked");
+  })
   console.log($newToDo);
-  $("#resultpage").append($newToDo)
+  $("#resultpage").append($newToDo);
+
 });
 
-// const delete = (obj) => {
+// const test = (obj) => { 
+//   console.log(obj);
+//   console.log("Delete button should work!")
 //   todoList.pop(obj);
 // }
 
-const test = (obj) => { 
-  console.log("Delete button should work!")
-  todoList.pop(obj);
-} 
+
+//// Make my Day//
+
+
+const quotes = $.get(`https://quote-garden.herokuapp.com/api/v2/quotes/random`,(data) =>{
+  console.log(data);
+  const quoteAuthor = data.quote.quoteAuthor;
+  const quote = data.quote.quoteText;
+  console.log(quote);
+  console.log(quoteAuthor);
+  const text = `<p>${quote}</p>`;
+  const author = `<p>${quoteAuthor}</p>`;
+  console.log(author)
+  console.log(text);
+
+  $("#makeMyday").on("click", () => {
+    $("#Qoute").append(text);
+    $("#Author").append(author);
+  });
+});
+
+
+
