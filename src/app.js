@@ -44,22 +44,15 @@ const $form = `
       <input type="text" id="datepicker" name="date"/>
     <label>comment</label>
     <textarea name="comment"> Enter text here...</textarea>
+    <br>
     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
   </form>
 `;
 
-
-
 const renderNewToDoItem = (newToDo) => {
   return ` 
-  <tr class="heading" id="heading-${newToDo.id}">
-  <th>Action</th>
-  <th>Edit</th>
-  <th >Project Name</th>
-  <th>Project Status</th>
-  <th>Project Date</th>
-  <th>Comment</th>
-<li>
+  
+
 </tr>
 <tr id="row-${newToDo.id}">
   <td><i id=${newToDo.id} class="fa fa-trash"></i></td>

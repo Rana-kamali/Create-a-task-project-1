@@ -166,8 +166,16 @@ input[name="date"] {
     color: #44bcd8;
     font-weight: bold;
 }
+@media (max-width: 500px){
+    .modal-body{
+        background-color: #44bcd8;
+    }
+    textarea[name="comment"] {
+       
+        width: 200px;
+        height: 200px;
+         
+    }
 
-
-
-
+}
 
