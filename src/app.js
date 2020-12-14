@@ -51,7 +51,13 @@ const $form = `
 
 const renderNewToDoItem = (newToDo) => {
   return ` 
-  
+  <tr class="heading" id="heading-${newToDo.id}">
+  <th>Action</th>
+  <th>Edit</th>
+  <th >Project Name</th>
+  <th>Project Status</th>
+  <th>Project Date</th>
+  <th>Comment</th>
 
 </tr>
 <tr id="row-${newToDo.id}">
@@ -77,7 +83,7 @@ $("#toDoForm").on("submit", (event) => {
   const date = $("input[name='date']").val();
   const comment = $("textarea[name='comment']").val();
   id = id + 1;
-  edit = id + 1;
+  edit = id ;
   const newTodoItem = {
     edit: edit,
     id: id,
