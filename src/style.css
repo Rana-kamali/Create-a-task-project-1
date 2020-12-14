@@ -7,48 +7,39 @@ body{
     grid-template-columns: 100px 250px 100px 250px;
     padding: 10px;
     font-weight: bold;
-    
 }
-
 .grid-item {
-text-align: center;
-color: white;
-background-color:#44bcd8;
-padding-top: 30px;
-padding-bottom: 150px;
-width: 100px;
-
+    text-align: center;
+    color: white;
+    background-color:#44bcd8;
+    padding-top: 30px;
+    padding-bottom: 150px;
+    width: 100px;
 }
 .grid-item-right{
-text-align: left;
-color: #44bcd8;
-
-width: 1300px;
-font-size: 15px;
-
+    text-align: left;
+    color: #44bcd8;
+    width: 2300px;
+    font-size: 15px;
 }
-
 .P2-container{
     text-align: left;
     margin-left: 30px;
-    
-    
 }
-
 div label {
     display: block;
-
 }
-
+label{
+    color: #23395d;
+}
 input[name="name"] {
- border: #44bcd8 solid 1px;
+    border: #44bcd8 solid 1px;
     border-radius: 2px;
     font-weight: lighter;
     font-size: small;
     width: 200px;
     height: 30px;
     margin-bottom: 15px;
-    
 }
 select[name="status"] {
     border: #44bcd8 solid 1px;
@@ -56,7 +47,6 @@ select[name="status"] {
     width: 200px;
     height: 30px;
     margin-bottom: 15px;
-    
 }
 textarea[name="comment"] {
     border: #44bcd8 solid 1px;
@@ -64,28 +54,20 @@ textarea[name="comment"] {
     width: 435px;
     height: 200px;
     margin-bottom: 15px;
-    
 }
-
 input[name="date"] {
     border: #44bcd8 solid 1px;
     font-size: small;
     width: 200px;
     height: 30px;
     margin-bottom: 15px;
-    
 }
-
-/* select option[value="assign"] {
-    background: red;
-} */
 .modal-header{
-background-color: #44bcd8;
-color: white;
-font-size: 15px;
-font-weight: lighter;
+    background-color: #44bcd8;
+    color: white;
+    font-size: 15px;
+    font-weight: lighter;
 }
-/* result preview */
 #resultpage{
     text-align: center;
 }
@@ -94,9 +76,7 @@ font-weight: lighter;
     font-size: 15px;
     padding-right: 200px;
     font-weight: lighter;
-    
 }
-
 .nameofstatus{
     color: #666666;
     font-size: 15px;
@@ -109,18 +89,17 @@ font-weight: lighter;
     padding-right: 200px;
     margin: 20px;
     font-weight: lighter;
-    
 }
 .resultofcomment{
     color: #666666;
     font-size: 15px;
-    padding-right: 200px;
     margin: 20px;
     font-weight: lighter;
-    table-layout: fixed; width:500px;
-    width: 500px;
+    width: 1500px;
 }
-
+td.resultofcomment{
+    width: 200px;
+}
 .ui-icon ui-icon-circle-triangle-e{
     padding-left:50px ;
 }
@@ -141,10 +120,7 @@ font-weight: lighter;
 .ui-datepicker-prev ui-corner-all{
     padding-right: 30px;
 }
-
-
 .resultofcomment{
-    
     color: #666666;
     font-size: 15px;
     margin: 20px;
@@ -156,7 +132,6 @@ font-weight: lighter;
 }
 .glyphicon{
     padding-right: 75px;
-
 }
 .heading{
     size: inherit;
@@ -167,7 +142,6 @@ font-weight: lighter;
     padding-left: 50px;
     font-weight: lighter;
     background-color:#44bcd8;
-
 }
 #Qoute{
     color: #666666;
@@ -183,12 +157,9 @@ font-weight: lighter;
     .modal-body{
         background-color: #44bcd8;
     }
-    textarea[name="comment"] {
-       
+        textarea[name="comment"] {
         width: 200px;
         height: 200px;
-         
     }
-
 }
 

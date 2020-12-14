@@ -40,7 +40,9 @@ const $form = `
       <option value="working">working</option>
       <option value="complete">complete</option>
     </select>
-    <lable for="date"> Date </lable>
+    <br>
+    <label for="date"> Date </label>
+    
       <input type="text" id="datepicker" name="date"/>
     <label>comment</label>
     <textarea name="comment"> Enter text here...</textarea>
@@ -83,7 +85,7 @@ $("#toDoForm").on("submit", (event) => {
   const date = $("input[name='date']").val();
   const comment = $("textarea[name='comment']").val();
   id = id + 1;
-  edit = id ;
+  edit = id;
   const newTodoItem = {
     edit: edit,
     id: id,
@@ -114,17 +116,17 @@ $("#resultpage").on("click", ".glyphicon", (e) => {
 //   ` https://quote-garden.herokuapp.com/api/v3/quotes`,
 //   (data) => {
 //     console.log(data);
-//     const quoteAuthor = data.quote.quoteAuthor;
-//     const quote = data.quote.quoteText;
+//     // const quoteAuthor = data.data;
+//     const quote = data.data[0];
 //     console.log(quote);
-//     console.log(quoteAuthor);
-//     const text = `<p>${quote}</p>`;
-//     const author = `<p>${quoteAuthor}</p>`;
-//     console.log(author);
-//     console.log(text);
-//     $("#makeMyday").on("click", () => {
-//       $("#Qoute").append(text);
-//       $("#Author").append(author);
+//     // console.log(quoteAuthor);
+//     // const text = `<p>${quote}</p>`;
+//     // const author = `<p>${quoteAuthor}</p>`;
+//     // console.log(author);
+//     // console.log(text);
+//     // $("#makeMyday").on("click", () => {
+//     //   $("#Qoute").append(text);
+//     //   $("#Author").append(author);
 //     });
-//   }
-// );
+// //   }
+// // );
