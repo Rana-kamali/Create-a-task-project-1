@@ -43,10 +43,13 @@ const $form = `
     <lable for="date"> Date </lable>
       <input type="text" id="datepicker" name="date"/>
     <label>comment</label>
-    <textarea rows="4" cols="50" name="comment"> Enter text here...</textarea>
+    <textarea name="comment"> Enter text here...</textarea>
     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
   </form>
 `;
+
+
+
 const renderNewToDoItem = (newToDo) => {
   return ` 
   <tr class="heading" id="heading-${newToDo.id}">
@@ -60,7 +63,7 @@ const renderNewToDoItem = (newToDo) => {
 </tr>
 <tr id="row-${newToDo.id}">
   <td><i id=${newToDo.id} class="fa fa-trash"></i></td>
-  <td><span class="glyphicon">&#x270f;</span></td>
+  <td><i id=${newToDo.edit} class="glyphicon">&#x270f;</i></td>
   <td class="nameoftheproject">${newToDo.name}</td>
   <td class="nameofstatus">${newToDo.status}</td>
   <td class="resultofdate">${newToDo.date}</td>
@@ -81,7 +84,9 @@ $("#toDoForm").on("submit", (event) => {
   const date = $("input[name='date']").val();
   const comment = $("textarea[name='comment']").val();
   id = id + 1;
+  edit = id + 1;
   const newTodoItem = {
+    edit: edit,
     id: id,
     name: name,
     status: status,
@@ -92,7 +97,7 @@ $("#toDoForm").on("submit", (event) => {
   console.log($newToDo);
   $("#resultpage").append($newToDo);
 });
-//// Make my Day//
+
 $("#resultpage").on("click", "i.fa-trash", (e) => {
   console.log("this was pressed");
   const idToBeDeleted = e.target.id;
@@ -100,21 +105,27 @@ $("#resultpage").on("click", "i.fa-trash", (e) => {
   $(`#heading-${idToBeDeleted}`).remove();
   $(`#row-${idToBeDeleted}`).remove();
 });
-const quotes = $.get(
-  `https://quote-garden.herokuapp.com/api/v2/quotes/random`,
-  (data) => {
-    console.log(data);
-    const quoteAuthor = data.quote.quoteAuthor;
-    const quote = data.quote.quoteText;
-    console.log(quote);
-    console.log(quoteAuthor);
-    const text = `<p>${quote}</p>`;
-    const author = `<p>${quoteAuthor}</p>`;
-    console.log(author);
-    console.log(text);
-    $("#makeMyday").on("click", () => {
-      $("#Qoute").append(text);
-      $("#Author").append(author);
-    });
-  }
-);
+$("#resultpage").on("click", ".glyphicon", (e) => {
+  console.log("this was pressed");
+  const idToBeEdited = e.target.id;
+  console.log(idToBeEdited);
+});
+// Make my Day//
+// const quotes = $.get(
+//   ` https://quote-garden.herokuapp.com/api/v3/quotes`,
+//   (data) => {
+//     console.log(data);
+//     const quoteAuthor = data.quote.quoteAuthor;
+//     const quote = data.quote.quoteText;
+//     console.log(quote);
+//     console.log(quoteAuthor);
+//     const text = `<p>${quote}</p>`;
+//     const author = `<p>${quoteAuthor}</p>`;
+//     console.log(author);
+//     console.log(text);
+//     $("#makeMyday").on("click", () => {
+//       $("#Qoute").append(text);
+//       $("#Author").append(author);
+//     });
+//   }
+// );

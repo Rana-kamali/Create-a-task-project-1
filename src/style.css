@@ -39,12 +39,46 @@ div label {
     display: block;
 
 }
-.nameInput{
-    border: #44bcd8 solid 1px;
+
+input[name="name"] {
+ border: #44bcd8 solid 1px;
     border-radius: 2px;
     font-weight: lighter;
     font-size: small;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    
 }
+select[name="status"] {
+    border: #44bcd8 solid 1px;
+    font-size: small;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    
+}
+textarea[name="comment"] {
+    border: #44bcd8 solid 1px;
+    font-size: small;
+    width: 435px;
+    height: 200px;
+    margin-bottom: 15px;
+    
+}
+
+input[name="date"] {
+    border: #44bcd8 solid 1px;
+    font-size: small;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 15px;
+    
+}
+
+/* select option[value="assign"] {
+    background: red;
+} */
 .modal-header{
     /* color: springgreen; */
 }
@@ -57,6 +91,7 @@ div label {
     font-size: 15px;
     padding-right: 200px;
     font-weight: lighter;
+    
 }
 .nameofstatus{
     color: #666666;
@@ -72,7 +107,6 @@ div label {
     font-weight: lighter;
     
 }
-
 
 .ui-icon ui-icon-circle-triangle-e{
     padding-left:50px ;
