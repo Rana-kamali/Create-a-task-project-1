@@ -45,7 +45,7 @@ const $form = `
     
       <input type="text" id="datepicker" name="date"/>
     <label>comment</label>
-    <textarea name="comment"> Enter text here...</textarea>
+    <textarea name="comment">Comment</textarea>
     <br>
     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
   </form>
@@ -111,22 +111,4 @@ $("#resultpage").on("click", ".glyphicon", (e) => {
   const idToBeEdited = e.target.id;
   console.log(idToBeEdited);
 });
-// Make my Day//
-// const quotes = $.get(
-//   ` https://quote-garden.herokuapp.com/api/v3/quotes`,
-//   (data) => {
-//     console.log(data);
-//     // const quoteAuthor = data.data;
-//     const quote = data.data[0];
-//     console.log(quote);
-//     // console.log(quoteAuthor);
-//     // const text = `<p>${quote}</p>`;
-//     // const author = `<p>${quoteAuthor}</p>`;
-//     // console.log(author);
-//     // console.log(text);
-//     // $("#makeMyday").on("click", () => {
-//     //   $("#Qoute").append(text);
-//     //   $("#Author").append(author);
-//     });
-// //   }
-// // );
+
