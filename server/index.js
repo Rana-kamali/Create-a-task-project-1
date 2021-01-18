@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const internalRouts = require("./routes/internalRouts");
-const modelSchema = require("./models/ModelSchema");
-const userSchema = require("./models/userSchema");
+const internalRoutes = require("./routes/internalRouts");
+// const modelSchema = require("./models/ModelSchema");
+// const userRoutes = require("./models/userSchema");
+const userRoutes = require("./routes/userRoutes");
 
 mongoose.connect('mongodb://localhost:27017/eventManagement', {
   useNewUrlParser: true,
@@ -16,7 +17,8 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use("/internal", internalRouts);
+app.use("/internal", internalRoutes);
+app.use("/user", userRoutes);
 app.get('/', function (req, res) {
   res.send(` app is listening at http://localhost:${port}`)
 })
