@@ -4,6 +4,13 @@ const internalRouts = require("./routes/internalRouts");
 const modelSchema = require("./models/ModelSchema");
 const userSchema = require("./models/userSchema");
 
+mongoose.connect('mongodb://localhost:27017/eventManagement', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
+
 const app = express()
 const port = 3000;
 
