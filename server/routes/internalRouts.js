@@ -1,6 +1,6 @@
 
 const express = require("express");
-const dataModel = require("../models/ModelSchema");
+const dataModel = require("../models/todoModel");
 
 const router = express.Router();
 
@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 
 
 router.post('/add', (req, res) => {
-  const requestToSend = [{ name: req.body.name, status: req.body.status , date: req.body.date , comment: req.body.comment}]
+
+  const requestToSend = req.body;
   console.log("body: ", requestToSend);
   dataModel.create(requestToSend).then((data)=>{
     console.log("data: ", data)

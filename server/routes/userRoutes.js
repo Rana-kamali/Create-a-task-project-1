@@ -1,12 +1,18 @@
 const express = require('express');
-const userSchema = require("../models/userSchema");
-const router = require('./internalRouts');
+const bcrypt = require("bcrypt");
+const userModel = require("../models/userModel");
+const router = express.Router();
 
 
 router.post("/login", (req, res) => {
-    const requestBody = [{ email: req.body.email, password: req.body.password }];
-    console.log("req body: " ,requestBody);
-    userSchema.create(requestBody).then((data) => {
+    const body = req.body;
+    console.log("req body: " ,body);
+    const passwordHash = bcrypt.hashSync(body.password, 10);
+    console.log("password hash : ", passwordHash);
+
+    const user = { email: body.email , password: passwordHash };
+    console.log("user: ", user)
+    userModel.create(user).then((data) => {
         console.log("getting data ", data);
     })
     res.send("you have logged in")
