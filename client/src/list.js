@@ -1,31 +1,60 @@
-
+import taskForm from "./task"
 const form = `
-<div id = "todlist">
-<label>items</label>
-  <input type="text" placeholder="Item ID "name="list" id = "list"> </input>
-  </div>
-<ol>
-<li id = "list"></li>
-</ol>
+<form id = "projectsForm">
+<div class="form-group">
+<label for="projectId">Project name</label>
+<select name="projectId" id="projects"></select>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">show Tasks</button>
+
+</form>
+<ul id="tasksList" ></ul>
+<div id="taskDetail"></div>
+
 `;
 
+const list = () => {
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/project/all",
+  }).done((ProjectCategories) => {
+    console.log("ProjectCategories: ", ProjectCategories);
+    let optionsHtml = "";
+    ProjectCategories.forEach((projectEl) => {
+      console.log("projectEl: ", projectEl);
+      optionsHtml += `<option value=${projectEl._id}>${projectEl.projectName}</option>`;
+      console.log("optionsHtml", optionsHtml);
+    });
+    console.log("optionsHtml", optionsHtml);
+    $("#projects").append(optionsHtml);
+  });
 
-const newlist = () =>{
-  
-  $(document).on("click", () =>{
-  console.log("button clicked :")
-const listData = $.get(`http://localhost:3000/project/getById`,(data) => {
-    console.log(data);
-    const todolist = data.value;
-    const list = `<li id="1">${todolist}</li>`;
-    $("#list").append("#1");
-}) 
-    
+  $(document).on("submit", "#projectsForm", (e) => {
+    e.preventDefault();
+    console.log($("#projects").val());
+    const projectId = $("#projects").val();
+    $.ajax({
+      type: "GET",
+      url: `http://localhost:3000/project/getById/${projectId}`,
+    }).done((tasks) => {
+      $("#tasksList").empty();
 
-  })
+      tasks.forEach((task) => {
+        const taskHtml = $(`<li>${task.name}</li>`);
+
+        taskHtml.on("click", () => {
+          console.log("id: ", task);
+          const detail = taskForm(task);
+          console.log("detail: ", detail);
+          $("#taskDetail").empty();
+          $("#taskDetail").append(detail);
+        });
+        $("#tasksList").append(taskHtml);
+
+      });
+    });
+  });
   return form;
-}
-  
-  export default newlist;
+};
+
+export default list;

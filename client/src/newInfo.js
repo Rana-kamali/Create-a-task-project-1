@@ -27,6 +27,7 @@ const form = `
     <label for="categoryId">Project number</label>
     <select name="categoryId" id="categories"></select>
   </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
@@ -57,9 +58,12 @@ const newInfo = () =>{
   
 
 
+  
+
+
 
   $(document).on("submit","#toDoForm", async(e)=>{
-    e.preventDefault();
+    
     console.log($("#name").val());
     console.log($("#status").val());
     console.log($("#date").val());
@@ -73,7 +77,7 @@ const newInfo = () =>{
       date: $("#date").val(),
       comment: $("#comment").val(),
       categoryId: $("#categories").val(),
-      categoryId: $("#list").val(),
+      categoryId: $("#categoryList").val(),
     };
     console.log("request body: ", requestBody);
 
