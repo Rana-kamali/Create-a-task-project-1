@@ -4,7 +4,30 @@ const userModel = require("../models/userModel");
 const router = express.Router();
 
 
-router.post("/login", (req, res) => {
+
+router.post("/login", (request, response) => {
+    userModel.findOne({username: request.body.email}).then((userData) =>{
+      if(userData){
+        const checkHashPassword = bcrypt.compareSync(request.body.password, userData.password);
+        if(checkHashPassword){
+          console.log("request.session", request.session);
+          request.session.user = {
+            id: userData._id,
+          }
+          console.log("request.session", request.session);
+          response.send("loged in");
+          
+        }else{
+          response.status(401).send("if password is wrong");
+        }
+      }else{
+        response.status(404).send("wrong credentials")
+      }
+    })
+    // request.session.loggedIn = true;
+    // response.send("User has logged in!");
+  });
+router.post("/register", (req, res) => {
     const body = req.body;
     console.log("req body: " ,body);
     const passwordHash = bcrypt.hashSync(body.password, 10);
@@ -15,7 +38,7 @@ router.post("/login", (req, res) => {
     userModel.create(user).then((data) => {
         console.log("getting data ", data);
     })
-    res.send("you have logged in")
+    res.send("New user has been created")
 })
 
 

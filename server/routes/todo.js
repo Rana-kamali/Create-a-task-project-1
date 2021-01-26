@@ -19,7 +19,7 @@ router.post("/addId" , (request, response) => {
  })
 
 })
-router.get("/projects/all", (request, response) => {
+router.get("/all", (request, response) => {
     // const requestBody = request.body;
     // console.log("request body:  ", requestBody);
     projectModel.find().then((data)=>{
@@ -31,8 +31,31 @@ router.get("/projects/all", (request, response) => {
     
   });
 
+router.get("/getById/:id", (req,res) => {
+    todoModel.find({categoryId: req.params.id}).then((data) => {
+        console.log(data);
+        res.send(data);
+    }).catch(() =>{
+        console.log("its wrong")
+        res.status(404).send("category ID is wrong")
+    })
+} )
 
+// router.patch("/update/:id", (request,response) => {
 
+//     todoModel.findByIdAndUpdate(request.params.id, request.body, { 
+//       new: true,
+//       upsert: true })
+//     .then((data) => {
+//       console.log("Update successful!");
+//       response.send(data);
+//     }).catch (()=>{
+//       console.log("Something went wrong!!")
+//         response.status(404).send("Project was not found")
+//     })
+  
+//   })
 
+  
 
 module.exports = router;

@@ -1,10 +1,13 @@
 import "regenerator-runtime/runtime";
+import style from "./style.css";
 
 
 import newInfo from "./newInfo";
-import formResponse from "./project";
+
 import list from "./list";
+import login from "./login";
 
 // $("body").prepend(newInfo());
-// $("body").prepend(formResponse());
+
 $("body").prepend(list());
+// $("body").prepend(login());

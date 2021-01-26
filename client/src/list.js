@@ -6,6 +6,8 @@ const form = `
 <select name="projectId" id="projects"></select>
 </div>
 <button type="submit" class="btn btn-primary">show Tasks</button>
+<button type="submit" class="btn btn-primary">Edit</button>
+<button type="submit" class="btn btn-primary">Delete</button>
 
 </form>
 <ul id="tasksList" ></ul>
@@ -16,7 +18,7 @@ const form = `
 const list = () => {
   $.ajax({
     type: "GET",
-    url: "http://localhost:3000/project/all",
+    url: "/api//project/all",
   }).done((ProjectCategories) => {
     console.log("ProjectCategories: ", ProjectCategories);
     let optionsHtml = "";
@@ -29,13 +31,16 @@ const list = () => {
     $("#projects").append(optionsHtml);
   });
 
+
+
+
   $(document).on("submit", "#projectsForm", (e) => {
     e.preventDefault();
     console.log($("#projects").val());
     const projectId = $("#projects").val();
     $.ajax({
       type: "GET",
-      url: `http://localhost:3000/project/getById/${projectId}`,
+      url: `/api//project/getById/${projectId}`,
     }).done((tasks) => {
       $("#tasksList").empty();
 
@@ -53,6 +58,14 @@ const list = () => {
 
       });
     });
+    const response = $.ajax({
+      type: "Patch", // OR GET
+      url: `/api//project/update/${projectId}`,
+      contentType: "application/json",
+      data: JSON.stringify(response),
+    });
+    console.log(`This is the response I get back!: ${response}`);
+
   });
   return form;
 };

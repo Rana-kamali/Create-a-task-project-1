@@ -1,4 +1,5 @@
 
+
 const form = `
   <form id="toDoForm">
   <div class = "form-group">
@@ -29,6 +30,8 @@ const form = `
   </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+    
+
   </form>
 
 `;
@@ -42,7 +45,7 @@ const newInfo = () =>{
   
     const categoryResponse = $.ajax({
       type: "GET",
-      url: "http://localhost:3000/project/all",
+      url: "/api//project/all",
     }).done((ProjectCategories) => {
       console.log("ProjectCategories: ", ProjectCategories);
       let optionsHtml = "";
@@ -55,15 +58,10 @@ const newInfo = () =>{
       $("#categories").append(optionsHtml);
     });
 
-  
-
-
-  
-
 
 
   $(document).on("submit","#toDoForm", async(e)=>{
-    
+    e.preventDefault();
     console.log($("#name").val());
     console.log($("#status").val());
     console.log($("#date").val());
@@ -77,7 +75,7 @@ const newInfo = () =>{
       date: $("#date").val(),
       comment: $("#comment").val(),
       categoryId: $("#categories").val(),
-      categoryId: $("#categoryList").val(),
+      // categoryId: $("#categoryList").val(),
     };
     console.log("request body: ", requestBody);
 
@@ -90,6 +88,7 @@ const newInfo = () =>{
     console.log("response", response);
 
     console.log(`This is the response I get back!: ${response}`);
+   
   })
   return form;
 }
