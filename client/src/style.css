@@ -1,3 +1,50 @@
+
+/* login to your account */
+h3{
+    font-size: 20px;
+}
+#loginForm{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+    
+}
+
+#loginForm input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}
+
+/* add new task */
+.btn{
+	display: block;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: 1px;
+  height: 38px;
+  width: 120px;
+  line-height: 38px;
+  overflow: hidden;
+  background: #30C29E;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px rgba(black,.1);
+  border: 0;
+  cursor: pointer;
+
+}
+
 #toDoForm{
     font: 95% Arial, Helvetica, sans-serif;
 	max-width: 400px;
@@ -63,29 +110,87 @@ select{
 }
 
 
-/* login to your account */
-h3{
-    font-size: 20px;
+
+
+
+#projectsForm{
+	
+	position: relative;
+	width: 570px;
+    margin-left:30px ;
+	padding: 10px 10px 10px 30px;
+	background: #fff;
+    border: 2px solid silver;
+    cursor: pointer;
+	outline: none;
+
 }
-#loginForm{
-    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	box-shadow: inset 0px 1px 0px 0px #45D6D6;
-	background-color: #2CBBBB;
-	border: 1px solid #27A0A0;
-	display: inline-block;
+
+/* List css */
+li{
+ margin: 2em;
+ width: 100%;
+ padding: 1px;
+ font-family: Verdana, sans-serif;
+ color:34CACA;
+}
+#tasksList{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 200px;
+	margin-top: -200px;
+	margin-left: -530px;
+	border-radius: 2px;
+	box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, 0.6);
+}
+
+.styled-table {
+
+    border-collapse: collapse;
+    margin: 350px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	color: #444;
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+	text-align: left;
+	
+}
+ th{
+	padding: 12px 15px;
+	 color: 009879;;
+ }
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.edit:hover {
+	
+	color: #0a79df;
 	cursor: pointer;
-	color: #FFFFFF;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 14px;
-	padding: 8px 18px;
-	text-decoration: none;
-	text-transform: uppercase;
-    
-}
-
-#loginForm input[type="submit"]:hover {
-	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
-	background-color:#34CACA;
-}
-
+  }
+  .delete:hover {
+	color: #dc2a2a;
+	cursor: pointer;
+  }

@@ -17,7 +17,7 @@ const form = `
     </div>
     <div class= "form-group">
     <label for="date" > Date </label>
-     <input type="text"  id = "date" name="date"/>
+     <input type="text"  id = "date" name="date" placeholder="yy/mm/dd"/>
      </div>
      <div class="form-group">
     <label>comment</label>

@@ -1,13 +1,11 @@
 import taskForm from "./task"
 const form = `
-<form id = "projectsForm">
+<form id = "projectsForm" >
 <div class="form-group">
 <label for="projectId">Project name</label>
 <select name="projectId" id="projects"></select>
 </div>
-<button type="submit" class="btn btn-primary">show Tasks</button>
-<button type="submit" class="btn btn-primary">Edit</button>
-<button type="submit" class="btn btn-primary">Delete</button>
+<button type="submit" class="btn">show Tasks</button>
 
 </form>
 <ul id="tasksList" ></ul>
@@ -18,7 +16,7 @@ const form = `
 const list = () => {
   $.ajax({
     type: "GET",
-    url: "/api//project/all",
+    url: "/api/project/all",
   }).done((ProjectCategories) => {
     console.log("ProjectCategories: ", ProjectCategories);
     let optionsHtml = "";
