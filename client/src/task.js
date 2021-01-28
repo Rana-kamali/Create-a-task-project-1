@@ -82,22 +82,5 @@ const taskForm = (task) => {
 // })
 
     
-
-
-
-    // $(document).on("click", "#delete", async (e) => {
-    //   // const projectId = task;
-    //   // console.log("project id: ", projectId)
-    //   // console.log("delete has been clicked")
-    //   e.preventDefault();
-    
-    
-    //   const response = await $.ajax({
-    //     type: "DELETE",
-    //     url: `/api/project/delete/${projectId}`,
-    //     contentType: "application/json",
-    //   });
-    
-    //   window.alert("task Deleted!");
   
 export default taskForm;

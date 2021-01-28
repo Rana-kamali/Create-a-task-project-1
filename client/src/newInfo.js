@@ -39,10 +39,6 @@ const form = `
 `;
 
 
-
-
-
-
 const newInfo = () =>{
   
     const categoryResponse = $.ajax({

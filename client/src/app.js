@@ -7,7 +7,7 @@ import newInfo from "./newInfo";
 import list from "./list";
 import login from "./login";
 
-$("body").prepend(newInfo());
+// $("body").prepend(newInfo());
 
 // $("body").prepend(list());
-// $("body").prepend(login());
+$("body").prepend(login());
