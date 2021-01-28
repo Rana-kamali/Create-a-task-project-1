@@ -1,4 +1,5 @@
-import { $where } from "../../server/models/userModel";
+
+import newInfo from "./newInfo";
 
 const form =`
 <form id ="loginForm">
@@ -26,8 +27,15 @@ const login = () => {
         url: "/api/user/login",
         contentType: "application/json",
         data: JSON.stringify(formData),
+
+        
       });
     console.log("response", response);
+    $("body").empty();
+    $("body").append((newInfo));
+
+    
+    
   });
     return form
 }

@@ -38,7 +38,7 @@ const list = () => {
     const projectId = $("#projects").val();
     $.ajax({
       type: "GET",
-      url: `/api//project/getById/${projectId}`,
+      url: `/api/project/getById/${projectId}`,
     }).done((tasks) => {
       $("#tasksList").empty();
 
@@ -58,7 +58,7 @@ const list = () => {
     });
     const response = $.ajax({
       type: "Patch", // OR GET
-      url: `/api//project/update/${projectId}`,
+      url: `/api/project/update/${projectId}`,
       contentType: "application/json",
       data: JSON.stringify(response),
     });

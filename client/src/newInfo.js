@@ -1,4 +1,4 @@
-
+import list from "./list";
 
 const form = `
   <form id="toDoForm">
@@ -28,8 +28,10 @@ const form = `
     <label for="categoryId">Project number</label>
     <select name="categoryId" id="categories"></select>
   </div>
-
+    
     <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+    <button id = "yourTask"ype="button" class="btn btn-primary">Your Task</button>
     
 
   </form>
@@ -45,7 +47,7 @@ const newInfo = () =>{
   
     const categoryResponse = $.ajax({
       type: "GET",
-      url: "/api//project/all",
+      url: "/api/project/all",
     }).done((ProjectCategories) => {
       console.log("ProjectCategories: ", ProjectCategories);
       let optionsHtml = "";
@@ -58,7 +60,11 @@ const newInfo = () =>{
       $("#categories").append(optionsHtml);
     });
 
-
+    $(document).on("click", "#yourTask",() => {
+      console.log("clicked");
+      $("body").empty();
+      $("body").append((list));
+    });
 
   $(document).on("submit","#toDoForm", async(e)=>{
     e.preventDefault();
@@ -90,6 +96,9 @@ const newInfo = () =>{
     console.log(`This is the response I get back!: ${response}`);
    
   })
+
+
+  
   return form;
 }
 
