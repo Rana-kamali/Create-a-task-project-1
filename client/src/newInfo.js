@@ -1,5 +1,6 @@
 import list from "./list";
 
+
 const form = `
   <form id="toDoForm">
   <div class = "form-group">
@@ -31,12 +32,13 @@ const form = `
     
     <button type="submit" class="btn btn-primary">Submit</button>
     <br>
-    <button id = "yourTask"ype="button" class="btn btn-primary">Your Task</button>
     
 
   </form>
-
+  <button id="yourTask" type="button">YourTask</button>
+    
 `;
+
 
 
 const newInfo = () =>{
@@ -56,11 +58,7 @@ const newInfo = () =>{
       $("#categories").append(optionsHtml);
     });
 
-    $(document).on("click", "#yourTask",() => {
-      console.log("clicked");
-      $("body").empty();
-      $("body").append((list));
-    });
+  
 
   $(document).on("submit","#toDoForm", async(e)=>{
     e.preventDefault();
@@ -77,7 +75,6 @@ const newInfo = () =>{
       date: $("#date").val(),
       comment: $("#comment").val(),
       categoryId: $("#categories").val(),
-      // categoryId: $("#categoryList").val(),
     };
     console.log("request body: ", requestBody);
 
@@ -94,7 +91,11 @@ const newInfo = () =>{
   })
 
 
-  
+  $(document).on("click", "#yourTask",() => {
+    console.log("clicked");
+    $("body").empty();
+    $("body").append((list));
+  });
   return form;
 }
 

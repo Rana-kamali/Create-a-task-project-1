@@ -1,4 +1,6 @@
 import taskForm from "./task"
+import newInfo from "./newInfo";
+import task from "./task"
 const form = `
 <form id = "projectsForm" >
 <div class="form-group">
@@ -6,12 +8,21 @@ const form = `
 <select name="projectId" id="projects"></select>
 </div>
 <button type="submit" class="btn">show Tasks</button>
+<br>
+<button type="click" id="create">Create Tasks</button>
+
 
 </form>
-<ul id="tasksList" ></ul>
+
+<ul id="tasksList"></ul>
 <div id="taskDetail"></div>
 
 `;
+$(document).on("click", "#create",() => {
+  console.log("clicked");
+  $("body").empty();
+  $("body").append((newInfo));
+});
 
 const list = () => {
   $.ajax({
@@ -28,8 +39,6 @@ const list = () => {
     console.log("optionsHtml", optionsHtml);
     $("#projects").append(optionsHtml);
   });
-
-
 
 
   $(document).on("submit", "#projectsForm", (e) => {
@@ -56,13 +65,13 @@ const list = () => {
 
       });
     });
-    const response = $.ajax({
-      type: "Patch", // OR GET
-      url: `/api/project/update/${projectId}`,
-      contentType: "application/json",
-      data: JSON.stringify(response),
-    });
-    console.log(`This is the response I get back!: ${response}`);
+    // const response = $.ajax({
+    //   type: "Patch",
+    //   url: `/api/project/update/${projectId}`,
+    //   contentType: "application/json",
+    //   data: JSON.stringify(response),
+    // });
+   
 
   });
   return form;

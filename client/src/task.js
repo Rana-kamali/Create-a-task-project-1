@@ -1,12 +1,14 @@
+import edit from "./edit";
 import list from "./list";
 
 const taskForm = (task) => {
   console.log("task page", task);
   console.log("task name: ", task.name);
   const form = `
-  <form id = "taskForm">
+  
   <table class="styled-table">
   <th>Project Name : ${task.name}</th>
+  
   <tr>
  
     <th>Name</th>
@@ -16,71 +18,60 @@ const taskForm = (task) => {
     <th>Action</th>
     <th></th>
   </tr>
+  <form id = "taskForm">
   <tr>
-    <td> ${task.name} </td>
-    <td> ${task.status}</td>
-    <td> ${task.date}</td>
-    <td> ${task.comment}</td>
+    <td> <input name="name" value =${task.name}></td>
+    <td><input name="status" value=${task.status}> </td>
+    <td><input name="date" value=${task.date}></td>
+    <td><input name="comment" value = ${task.comment}></td>
+    <input name="taskId" value=${task._id} type="hidden"/>
     <td>
-        <i id = "edit" class="material-icons button edit">edit</i>
+        <button type="submit" id ="edit" class="material-icons button edit">edit</button>
         </td>
         <td>
         <i  id ="delete"class="material-icons button delete">delete</i>
       </td>
   </tr>
-  </table>
   </form>
-    `;
-    $(document).on("click", "#delete", async (e) => {
-      console.log("clicked")
-      const projectId = task._id;
-      console.log("project id: ", projectId)
-      // console.log("delete has been clicked")
-      e.preventDefault();
-    
-    
-      const response = await $.ajax({
-        type: "DELETE",
-        url: `api/project/delete/${projectId}`,
-        contentType: "application/json",
-      });
-      
-      window.alert("task Deleted!");
-      $("body").empty();
-      $("body").append((list));
-    });
-    
-  return form;
+  </table>
   
+    `;
+
+  //Delete
+  $(document).on("click", "#delete", async (e) => {
+    e.preventDefault();
+    console.log("clicked");
+    const projectId = task._id;
+    console.log("project id: ", projectId);
+    // console.log("delete has been clicked")
+
+    const response = await $.ajax({
+      type: "DELETE",
+      url: `api/project/delete/${projectId}`,
+      contentType: "application/json",
+    });
+
+    window.alert("task Deleted!");
+    $("body").empty();
+    $("body").append(list);
+  });
+
+  // Edit
+  $(document).on("submit","#taskForm", (e) => {
+    e.preventDefault();
+    console.log("edit button was clicked");
+    
+    const formvalues= {
+      name: $("input[name='name']").val(),
+      status: $("input[name='status']").val(),
+      date: $("input[name='date']").val(),
+      comment: $("input[name='comment']").val(),
+      id:$("input[name='taskId']").val()
+    }
+    console.log("form values: ", formvalues);
+    // $("body").appendTo(edit);
+  });
+  return form;
 };
 
-// $("#taskrow").on("click", "edit", (e) =>{
-//   console.log("edit button was clicked");
-//   const idTobeEdited = e.target.id;
-
-//   console.log(idTobeEdited);
-//   $(`#heading-${idTobeEdited}`).appendTo();
-// })
-
-// const response = $.ajax({
-//   type: "Patch", // OR GET
-//   url: `api/update/${projectId}`,
-//   contentType: "application/json",
-//   data: JSON.stringify(response),
-// });
-// console.log(`This is the response I get back!: ${response}`);
-// $(document).on("click", "#taskrow", () => {
-// console.log(" edit clicked");
-// const projectId = $("#projects").val();
-
-// const response = $.ajax({
-//     type: "Patch", // OR GET
-//     url: `api/update/${projectId}`,
-//     contentType: "application/json",
-//     data: JSON.stringify(response),
-//   });
-// })
-
-    
-  
 export default taskForm;
